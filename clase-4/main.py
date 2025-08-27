@@ -35,3 +35,19 @@ print(f"Nombre    :\t{nombre}")
 print(f"Apellido  :\t{apellido}")
 print(f"Edad      :\t{edad} ({rango})")
 print(f"Correo    :\t{correo_electronico}")
+
+
+
+
+#Hay distintos tipos de variables, int para numeros enteros, str para cadenas de texto , bool para booleanos (verdadero o falso) , float para numeros fraccionables
+
+#En este caso -> edad = int(edad) 
+#Vemos que uso int... pero si python no hace falta declarar el tipo de dato, es una diferencia con otros lenguajes... porque use int ? porque eso es un parseo, es convertir para asegurar que la variable que esta dentro de los () sea un numero entero, como es la edad
+
+
+#.count es otro atributo que cuenta la cantidad de veces que aparece una cadena de texto que pidamos, en este caso fue @
+
+
+#.title pone la primer letra de una cadena de texto en MAYUSCULA, capitaliza un texto
+
+
