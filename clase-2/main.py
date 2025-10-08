@@ -14,6 +14,16 @@ print(f"Correo          : {correo_electronico}")
 print("="*40)
 
 
+print(f"""
+-------------------------------
+    TARJETA DE PRESENTACIÓN
+-------------------------------
+Nombre: {nombre} {apellido}
+Edad:   {edad} años
+Correo: {correo_electronico}
+-------------------------------
+""")
+
 
 # INFO: el . en programacion sirve para acceder a los atributos y metodos de un elemento 
 
