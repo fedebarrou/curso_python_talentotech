@@ -1,9 +1,11 @@
 from typing import List, Tuple
+from colorama import Fore, Style
+
 ProductoRow = Tuple[int, str, str, int, float, str]
 
 def imprimir_tabla(rows: List[ProductoRow]) -> None:
     if not rows:
-        print("No hay resultados para mostrar.")
+        print(Fore.YELLOW + "No hay resultados para mostrar." + Style.RESET_ALL)
         return
 
     headers = ["ID", "Nombre", "Descripción", "Cantidad", "Precio", "Categoría"]
@@ -21,11 +23,22 @@ def imprimir_tabla(rows: List[ProductoRow]) -> None:
         return " | ".join(str(v).ljust(widths[i]) for i, v in enumerate(vals))
 
     line = "-" * (sum(widths) + 3 * (len(headers) - 1))
-    print(line)
-    print(fmt(headers))
-    print(line)
+
+    print(Fore.CYAN + line + Style.RESET_ALL)
+    print(Fore.CYAN + fmt(headers) + Style.RESET_ALL)
+    print(Fore.CYAN + line + Style.RESET_ALL)
 
     for r in rows:
-        print(fmt([r[0], r[1] or "", r[2] or "", r[3], f"{r[4]:.2f}", r[5] or ""]))
+        cantidad = r[3]
+        # Resaltar stock bajo visualmente (opcional, no cambia lógica)
+        if cantidad <= 0:
+            prefix = Fore.RED
+        elif cantidad <= 5:
+            prefix = Fore.YELLOW
+        else:
+            prefix = Style.RESET_ALL
 
-    print(line)
+        row_str = fmt([r[0], r[1] or "", r[2] or "", r[3], f"{r[4]:.2f}", r[5] or ""])
+        print(prefix + row_str + Style.RESET_ALL)
+
+    print(Fore.CYAN + line + Style.RESET_ALL)
